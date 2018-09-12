@@ -1,7 +1,7 @@
 import React from "react"
 
 const heroSVG = props => (
-  <svg data-name="Layer 1" width={550} height={400} viewBox="0 0 600 800" preserveAspectRatio="xMinYMax meet" {...props}>
+  <svg data-name="Layer 1" width={550} height={400} viewBox="0 0 600 900" preserveAspectRatio="xMinYMax meet" {...props}>
     <defs>
       <linearGradient
         id="a"

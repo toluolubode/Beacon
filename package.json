@@ -12,7 +12,8 @@
     "dva": "^2.4.0",
     "react": "^16.2.0",
     "react-awesome-button": "^5.0.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-responsive": "^5.0.0"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
