@@ -1,5 +1,5 @@
 export default {
-  namespace: 'schools',
+  namespace: 'studentorgs',
   state: [],
   reducers: {
     'delete'(state, { payload: id }) {
@@ -7,3 +7,5 @@ export default {
     },
   },
 };
+
+//update this page with data logic

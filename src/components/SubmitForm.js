@@ -2,31 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Popconfirm, Button } from 'antd';
 
-const SchoolList = ({ onDelete, schools }) => {
+const SubmitForm = ({ onDelete, studentorgs }) => {
   const columns = [{
-    title: 'Name of School',
+    title: 'Name',
     dataIndex: 'name',
   }, {
     title: 'Actions',
     render: (text, record) => {
       return (
         <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
-          <Button>Contact</Button>
+          <Button>Delete</Button>
         </Popconfirm>
       );
     },
   }];
   return (
     <Table
-      dataSource={schools}
+      dataSource={studentorgs}
       columns={columns}
     />
   );
 };
 
-SchoolList.proptypes = {
+SubmitForm.proptypes = {
   onDelete: PropTypes.func.isRequired,
-  schools: PropTypes.array.isRequired,
+  studentorgs: PropTypes.array.isRequired,
 };
 
-export default SchoolList;
+export default SubmitForm;

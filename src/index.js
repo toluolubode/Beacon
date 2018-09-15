@@ -4,9 +4,9 @@ import './index.css';
 // 1. Initialize
 const app = dva({
    initialState: {
-     schools: [
-       { name: 'uOttawa', id: 1 },
-       { name: 'Carleton University', id: 2 },
+     studentorgs: [
+       { name: 'SESA', id: 1 },
+       { name: 'CSSA', id: 2 },
      ],
    },
  });
@@ -15,7 +15,7 @@ const app = dva({
 // app.use({});
 
 // 3. Model
-app.model(require('./models/schools').default);
+app.model(require('./models/submit').default);
 
 // 4. Router
 app.router(require('./router').default);
