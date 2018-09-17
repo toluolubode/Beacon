@@ -1,11 +1,18 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Layout, Button, Input, AutoComplete, Icon } from 'antd';
-import { Route } from 'react-router-dom'
+import { Route} from 'react-router-dom'
 import GraduationSVG from '../components/graduationSVG.js';
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.css';
+import Uottawa from '../assets/university-logo/uottawa.png';
+import Waterloo from '../assets/university-logo/waterloo.png';
+import Carleton from '../assets/university-logo/carleton.png';
+import Queens from '../assets/university-logo/queens.png';
+import UofT from '../assets/university-logo/uoft.png';
+import Ryerson from '../assets/university-logo/ryerson.png';
 
-const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo'];
+
+const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo','McMaster University','Queens University','Ryerson University','Mcgill University'];
 
 const { Header, Content, Footer } = Layout;
 
@@ -21,7 +28,17 @@ const headerStyle ={
   flex:'none',
   borderBottom: '1px solid rgb(223, 223, 223)',
 }
-const logoStyle= {color:'#4B4B4B', flex:1, width: 120, height: 31, margin: '16 24 16 0', float: 'left',fontSize:20,fontWeight:500}
+const logoStyle= {
+  color:'#4B4B4B',
+  flex:1,
+  width: 120,
+  height: 31,
+  margin: '16 24 16 0',
+  float: 'left',
+  fontSize:20,
+  fontWeight:500,
+  whiteSpace:"nowrap"
+}
 const submitButtonStyle= {justifyContent:'flex-end'}
 const contentStyle= {
     padding: '0 50px',
@@ -54,13 +71,15 @@ const heroText1={
     paddingBottom:"20px"
 
   }
-const heroText2={fontWeight:300,fontSize:'15px',padding:"10px"}
+const heroText2={fontWeight:300,fontSize:'15px',padding:"2px"}
 const subTextStyle={
     display:'flex',
     flex: '0 0 100%',
-    justifyContent:'center',
+    justifyContent:'right',
     width: 'auto',
-    maxHeight: '100%'
+    maxHeight: '100%',
+    flexDirection:'column',
+    textAlign:'center'
   }
 const footerStyle={
     background:'whitesmoke',
@@ -73,8 +92,20 @@ const footerStyle={
     display:'flex',
     justifyContent: 'center',
     alignItems:'center',
-    flex:'none'
-    }
+    flex:'none',
+    marginTop:'50px'
+}
+const imageRow={
+  display: 'flex',
+  width:'100%',
+  paddingTop:'5vh'
+}
+
+const imageCol={
+  flex: '33.33%',
+  padding: '1vh',
+  alignSelf:'center'
+}
 
 
 
@@ -97,19 +128,16 @@ const IndexPage = () => (
       </div>
     </Header>
     <Content style={contentStyle}>
-        <div style={heroSvgStyle}>
-          <GraduationSVG/>
-        </div>
         <div style={heroTextStyle}>
           <div style={heroText1}>
-          Find the best student organisations on campuses
-        </div>
+            Find the best student organisations on campuses
+          </div>
         <div>
           <div style={heroText2}>
             <span role='img' aria-labelledby="star-eyes emoji">✅</span>   Discover awesome student organisations on campuses.
           </div>
           <div style={heroText2}>
-            <span role='img' aria-labelledby="star-eyes emoji">✅</span> See the work they've done
+            <span role='img' aria-labelledby="star-eyes emoji">✅</span> Find up to date contact information
           </div>
           <div style={heroText2}>
             <span role='img' aria-labelledby="star-eyes emoji">✅</span> Connect with them
@@ -118,9 +146,10 @@ const IndexPage = () => (
           {/*search bar*/}
             <AutoComplete
               dropdownMatchSelectWidth={true}
+              autoFocus={true}
               dropdownStyle={{ width: 300 }}
               size="large"
-              style={{ width: '100%' }}
+              style={{ width: '100%', paddingTop:'20px' }}
               dataSource={universities}
               filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
               placeholder="Search for universities"
@@ -128,8 +157,31 @@ const IndexPage = () => (
             <Input suffix={<Icon type="search" className="certain-category-icon"  />} />
           </AutoComplete>
         </div>
+        <div style={heroSvgStyle}>
+          <GraduationSVG/>
+        </div>
         <div style={subTextStyle}>
-          <h4>Beacon is active in these schools</h4>
+          <div>Beacon is active in these schools</div>
+          <div style={imageRow}>
+            <div style={imageCol}>
+              <img src={Uottawa} alt="UOttawa" style={{width:'36%'}}/>
+            </div>
+            <div style={imageCol}>
+              <img src={Carleton} alt="Carleton University" style={{width:'80%'}}/>
+            </div>
+            <div style={imageCol}>
+              <img src={Waterloo} alt="University of Waterloo" style={{width:'80%'}}/>
+            </div>
+            <div style={imageCol}>
+              <img src={Queens} alt="Queens University" style={{width:'60%'}}/>
+            </div>
+            <div style={imageCol}>
+              <img src={UofT} alt="University of Toronto" style={{width:'60%'}}/>
+            </div>
+            <div style={imageCol}>
+              <img src={Ryerson} alt="Ryerson University" style={{width:'60%'}}/>
+            </div>
+          </div>
         </div>
     </Content>
     <Footer style={footerStyle}>
