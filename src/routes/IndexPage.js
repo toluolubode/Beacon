@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Layout, Button, Input, AutoComplete, Icon } from 'antd';
-import { Route} from 'react-router-dom';
+import { Layout,Input, AutoComplete, Icon } from 'antd';
 import HeaderSite from '../components/HeaderSite.js';
 import Testimg from '../assets/testhero.png'
 import 'antd/dist/antd.css';
@@ -15,7 +14,7 @@ import Ryerson from '../assets/university-logo/ryerson.png';
 
 const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo','McMaster University','Queens University','Ryerson University','Mcgill University'];
 
-const { Header, Content} = Layout;
+const {Content} = Layout;
 
 const layoutStyle = {
   background: 'white',
@@ -23,25 +22,7 @@ const layoutStyle = {
   flexDirection: 'column',
   height: '100%'
 }
-const headerStyle ={
-  background: 'white',
-  display:'flex',
-  flex:'none',
-  borderBottom: '1px solid rgb(223, 223, 223)',
-}
-const logoStyle= {
-  color:'black',
-  fontFamily:'Work Sans',
-  flex:1,
-  width: 120,
-  height: 31,
-  margin: '16 24 16 0',
-  float: 'left',
-  fontSize:20,
-  fontWeight:500,
-  whiteSpace:"nowrap"
-}
-const submitButtonStyle= {justifyContent:'flex-end'}
+
 const contentStyle= {
     padding: '0 50px',
     fontFamily:'Work Sans',
@@ -103,21 +84,7 @@ const imageCol={
 const IndexPage = () => (
   <Layout className="layout"
     style={layoutStyle}>
-    <Header className="header" style={headerStyle}>
-      <div className="logo" style={logoStyle}>
-        beacon <span role='img' aria-labelledby="school">💡</span>
-      </div>
-      <div className="submit" style={submitButtonStyle}>
-        <Route render={({ history}) => (
-          <Button
-            type='primary'
-            onClick={() => { history.push('/submit') }}
-            >
-            Submit a student organisation <span role='img' aria-labelledby='memo'>📝</span>
-          </Button>
-  )} />
-      </div>
-    </Header>
+    <HeaderSite />
     <Content style={contentStyle}>
         <div style={heroTextStyle}>
           <div style={heroText1}>
