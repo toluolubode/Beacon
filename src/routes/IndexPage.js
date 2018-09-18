@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Layout, Button, Input, AutoComplete, Icon } from 'antd';
-import { Route} from 'react-router-dom'
-import GraduationSVG from '../components/graduationSVG.js';
+import { Route} from 'react-router-dom';
+import HeaderSite from '../components/HeaderSite.js';
+import Testimg from '../assets/testhero.png'
 import 'antd/dist/antd.css';
 import Uottawa from '../assets/university-logo/uottawa.png';
 import Waterloo from '../assets/university-logo/waterloo.png';
@@ -14,7 +15,7 @@ import Ryerson from '../assets/university-logo/ryerson.png';
 
 const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo','McMaster University','Queens University','Ryerson University','Mcgill University'];
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content} = Layout;
 
 const layoutStyle = {
   background: 'white',
@@ -29,7 +30,8 @@ const headerStyle ={
   borderBottom: '1px solid rgb(223, 223, 223)',
 }
 const logoStyle= {
-  color:'#4B4B4B',
+  color:'black',
+  fontFamily:'Work Sans',
   flex:1,
   width: 120,
   height: 31,
@@ -42,6 +44,7 @@ const logoStyle= {
 const submitButtonStyle= {justifyContent:'flex-end'}
 const contentStyle= {
     padding: '0 50px',
+    fontFamily:'Work Sans',
     margin: '20',
     width:'100%',
     display:'flex',
@@ -51,8 +54,7 @@ const contentStyle= {
   }
 const heroSvgStyle={
   width: 'fit-content',
-  flex:1,
-  paddingTop: 30
+  flex:1
   }
 const heroTextStyle={
     background: '#fff',
@@ -64,7 +66,7 @@ const heroTextStyle={
     color:'black'
   }
 const heroText1={
-    fontFamily: 'Lato',
+    fontFamily: 'Work Sans',
     fontSize: 45,
     fontWeight:600,
     lineHeight:'50px',
@@ -72,6 +74,7 @@ const heroText1={
 
   }
 const heroText2={fontWeight:300,fontSize:'15px',padding:"2px"}
+const heroText2m={fontWeight:100,fontSize:'13px',padding:"2px", color:'dodgerblue', marginTop:15}
 const subTextStyle={
     display:'flex',
     flex: '0 0 100%',
@@ -79,22 +82,10 @@ const subTextStyle={
     width: 'auto',
     maxHeight: '100%',
     flexDirection:'column',
-    textAlign:'center'
+    textAlign:'center',
+    marginTop:40,
+    fontWeight:600
   }
-const footerStyle={
-    background:'whitesmoke',
-    // opacity: '50%',
-    position: 'relative',
-    height:'50',
-    left:0,
-    bottom:0,
-    width:'100%',
-    display:'flex',
-    justifyContent: 'center',
-    alignItems:'center',
-    flex:'none',
-    marginTop:'50px'
-}
 const imageRow={
   display: 'flex',
   width:'100%',
@@ -102,7 +93,7 @@ const imageRow={
 }
 
 const imageCol={
-  flex: '33.33%',
+  flex: '100%',
   padding: '1vh',
   alignSelf:'center'
 }
@@ -114,7 +105,7 @@ const IndexPage = () => (
     style={layoutStyle}>
     <Header className="header" style={headerStyle}>
       <div className="logo" style={logoStyle}>
-        Beacon <span role='img' aria-labelledby="school">💡</span>
+        beacon <span role='img' aria-labelledby="school">💡</span>
       </div>
       <div className="submit" style={submitButtonStyle}>
         <Route render={({ history}) => (
@@ -152,13 +143,16 @@ const IndexPage = () => (
               style={{ width: '100%', paddingTop:'20px' }}
               dataSource={universities}
               filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
-              placeholder="Search for universities"
+              placeholder="Search for a university"
             >
             <Input suffix={<Icon type="search" className="certain-category-icon"  />} />
           </AutoComplete>
+          <div style={heroText2m}>
+              Made with <span role='img' aria-labelledby="green-heart-emoji"> 💚 & ☕️ </span> by Tolu Olubode
+          </div>
         </div>
         <div style={heroSvgStyle}>
-          <GraduationSVG/>
+          <img src={Testimg} alt="Ryerson University" style={{width:'109%'}}/>
         </div>
         <div style={subTextStyle}>
           <div>Beacon is active in these schools</div>
@@ -184,9 +178,6 @@ const IndexPage = () => (
           </div>
         </div>
     </Content>
-    <Footer style={footerStyle}>
-      Made with <span role='img' aria-labelledby="green-heart-emoji"> 💚 </span> by Tolu Olubode
-    </Footer>
 </Layout>
 );
 
