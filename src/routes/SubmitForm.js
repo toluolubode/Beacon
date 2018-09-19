@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {Input, Button} from 'antd';
 import firebase from '../firebase.js';
+import HeaderNoBtn from '../components/HeaderNoBtn.js';
 
 
 class SubmitForm extends Component{
   constructor() {
     super();
     this.state = {
-     email: '',
-     fullname: ''
+      studentorg: '',
+      email: '',
+      abbreviation:''
     };
   }
 
@@ -24,34 +26,49 @@ addUser = e => {
     timestampsInSnapshots: true
   });
   const userRef = db.collection('users').add({
-    fullname: this.state.fullname,
-    email: this.state.email
+    studentorg: this.state.studentorg,
+    email: this.state.email,
+    abbreviation: this.state.abbreviation
   });
   this.setState({
-    fullname: '',
-    email: ''
+    studentorg: '',
+    email: '',
+    abbreviation:''
   });
 };
 
   render() {
     return (
-        <form>
-          <Input
-            type="text"
-            name="fullname"
-            placeholder="Student organisation"
-            onChange={this.updateInput}
-            value={this.state.fullname}
-          />
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={this.updateInput}
-            value={this.state.email}
-          />
-        <Button type="primary" onClick={this.addUser}>Submit</Button>
-        </form>
+      <div>
+        <HeaderNoBtn />
+        <div>
+          <form>
+            <Input
+              type="text"
+              name="studentorg"
+              placeholder="Student organisation"
+              onChange={this.updateInput}
+              value={this.state.studentorg}
+            />
+            <Input
+              type="name"
+              name="abbreviation"
+              placeholder="Abbreviation"
+              onChange={this.updateInput}
+              value={this.state.abbreviation}
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={this.updateInput}
+              value={this.state.email}
+            />
+          <Button type="primary" onClick={this.addUser}>Submit</Button>
+          </form>
+        </div>
+
+      </div>
         );
       }
    }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Layout,Input, AutoComplete, Icon } from 'antd';
 import HeaderSite from '../components/HeaderSite.js';
-import Testimg from '../assets/testhero.png'
+import Testimg from '../assets/testhero2.png'
 import 'antd/dist/antd.css';
 import Uottawa from '../assets/university-logo/uottawa.png';
 import Waterloo from '../assets/university-logo/waterloo.png';
