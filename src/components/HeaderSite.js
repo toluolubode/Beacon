@@ -13,6 +13,13 @@ const headerStyle ={
   borderBottom: '1px solid rgb(223, 223, 223)',
   //  for mobile width:'fit-content'
 }
+const headerStylem ={
+  background: 'white',
+  display:'flex',
+  flex:'none',
+  borderBottom: '1px solid rgb(223, 223, 223)',
+  width:'100%'
+}
 const logoStyle= {
   color:'black',
   flex:1,
@@ -24,6 +31,18 @@ const logoStyle= {
   fontWeight:500,
   whiteSpace:"nowrap"
 }
+const logoStylem= {
+  color:'black',
+  flex:1,
+  width: 120,
+  height: 31,
+  margin: '16 24 16 0',
+  float: 'left',
+  fontSize:20,
+  fontWeight:500,
+  whiteSpace:"nowrap",
+  marginRight: 30
+}
 const submitButtonStyle= {justifyContent:'flex-end'}
 
 const HeaderSite = () => {
@@ -32,7 +51,8 @@ const HeaderSite = () => {
       <MediaQuery minDeviceWidth={1024}>
         {(matches) => {
           if (matches) {
-            return <Header className="header" style={headerStyle}>
+            return(
+              <Header className="header" style={headerStyle}>
               <div className="logo" style={logoStyle}>
                 <img src={Logo} alt="Ryerson University"/>
               </div>
@@ -46,9 +66,27 @@ const HeaderSite = () => {
                   </Button>
               )} />
               </div>
-            </Header>;
+            </Header>
+          );
           } else {
-            return <h3>You are a tablet or mobile phone</h3>;
+            return (
+              <Header className="header" style={headerStylem}>
+              <div className="logo" style={logoStylem}>
+                <img src={Logo} alt="Ryerson University"/>
+              </div>
+              <div className="submit" style={submitButtonStyle}>
+                <Route render={({ history}) => (
+                  <Button
+                    type='primary'
+                    size='default'
+                    onClick={() => { history.push('/submit') }}
+                    >
+                    Submit <span role='img' aria-labelledby='memo'>📝</span>
+                  </Button>
+              )} />
+              </div>
+            </Header>
+            );
           }
         }}
       </MediaQuery>
