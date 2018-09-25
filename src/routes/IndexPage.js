@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Layout,Input, AutoComplete, Icon } from 'antd';
 import HeaderSite from '../components/HeaderSite.js';
-import Testimg from '../assets/testhero2.png'
+import Testimg from '../assets/testhero2.png';
 import 'antd/dist/antd.css';
 import Uottawa from '../assets/university-logo/uottawa.png';
 import Waterloo from '../assets/university-logo/waterloo.png';
@@ -10,6 +10,8 @@ import Carleton from '../assets/university-logo/carleton.png';
 import Queens from '../assets/university-logo/queens.png';
 import UofT from '../assets/university-logo/uoft.png';
 import Ryerson from '../assets/university-logo/ryerson.png';
+
+const systemfont= '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol';
 
 
 const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo','McMaster University','Queens University','Ryerson University','Mcgill University'];
@@ -25,7 +27,7 @@ const layoutStyle = {
 
 const contentStyle= {
     padding: '0 50px',
-    fontFamily:'Work Sans',
+    fontFamily: systemfont,
     margin: '20',
     width:'100%',
     display:'flex',
@@ -47,7 +49,7 @@ const heroTextStyle={
     color:'black'
   }
 const heroText1={
-    fontFamily: 'Work Sans',
+    fontFamily: systemfont,
     fontSize: 45,
     fontWeight:600,
     lineHeight:'50px',
@@ -55,7 +57,7 @@ const heroText1={
 
   }
 const heroText2={fontWeight:300,fontSize:'15px',padding:"2px"}
-const heroText2m={fontWeight:100,fontSize:'13px',padding:"2px", color:'dodgerblue', marginTop:15}
+const heroText2m={fontWeight:300,fontSize:'13px',padding:"2px", color:'dodgerblue', marginTop:15}
 const subTextStyle={
     display:'flex',
     flex: '0 0 100%',

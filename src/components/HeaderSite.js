@@ -1,17 +1,20 @@
 import React from 'react';
 import {Layout, Button} from 'antd';
 import { Route} from 'react-router-dom';
+import Logo from '../assets/beacon-logo.svg';
+import MediaQuery from 'react-responsive';
 const { Header } = Layout;
+
 
 const headerStyle ={
   background: 'white',
   display:'flex',
   flex:'none',
   borderBottom: '1px solid rgb(223, 223, 223)',
+  //  for mobile width:'fit-content'
 }
 const logoStyle= {
   color:'black',
-  fontFamily:'Work Sans',
   flex:1,
   width: 120,
   height: 31,
@@ -25,21 +28,32 @@ const submitButtonStyle= {justifyContent:'flex-end'}
 
 const HeaderSite = () => {
   return(
-    <Header className="header" style={headerStyle}>
-      <div className="logo" style={logoStyle}>
-        beacon <span role='img' aria-labelledby="school">💡</span>
-      </div>
-      <div className="submit" style={submitButtonStyle}>
-        <Route render={({ history}) => (
-          <Button
-            type='primary'
-            onClick={() => { history.push('/submit') }}
-            >
-            Submit a student organisation <span role='img' aria-labelledby='memo'>📝</span>
-          </Button>
-  )} />
-      </div>
-    </Header>
+    <div>
+      <MediaQuery minDeviceWidth={1024}>
+        {(matches) => {
+          if (matches) {
+            return <Header className="header" style={headerStyle}>
+              <div className="logo" style={logoStyle}>
+                <img src={Logo} alt="Ryerson University"/>
+              </div>
+              <div className="submit" style={submitButtonStyle}>
+                <Route render={({ history}) => (
+                  <Button
+                    type='primary'
+                    onClick={() => { history.push('/submit') }}
+                    >
+                    Submit a student organisation <span role='img' aria-labelledby='memo'>📝</span>
+                  </Button>
+              )} />
+              </div>
+            </Header>;
+          } else {
+            return <h3>You are a tablet or mobile phone</h3>;
+          }
+        }}
+      </MediaQuery>
+    </div>
+
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Layout} from 'antd'
+import Logo from '../assets/beacon-logo.svg';
 const { Header } = Layout;
 
 const headerStyle ={
@@ -10,7 +11,6 @@ const headerStyle ={
 }
 const logoStyle= {
   color:'black',
-  fontFamily:'Work Sans',
   flex:1,
   width: 120,
   height: 31,
@@ -25,7 +25,7 @@ const HeaderNoBtn = () => {
   return(
     <Header className="header" style={headerStyle}>
       <div className="logo" style={logoStyle}>
-        beacon <span role='img' aria-labelledby="school">💡</span>
+        <img src={Logo} alt="Ryerson University"/>
       </div>
     </Header>
   )
