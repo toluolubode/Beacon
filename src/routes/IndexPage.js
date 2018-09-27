@@ -2,19 +2,15 @@ import React from 'react';
 import { connect } from 'dva';
 import { Layout,Input, AutoComplete, Icon } from 'antd';
 import HeaderSite from '../components/HeaderSite.js';
+import ActiveUniversities from '../components/ActiveUniversities.js';
 import Testimg from '../assets/testhero2.png';
 import 'antd/dist/antd.css';
-import Uottawa from '../assets/university-logo/uottawa.png';
-import Waterloo from '../assets/university-logo/waterloo.png';
-import Carleton from '../assets/university-logo/carleton.png';
-import Queens from '../assets/university-logo/queens.png';
-import UofT from '../assets/university-logo/uoft.png';
-import Ryerson from '../assets/university-logo/ryerson.png';
+
 
 const systemfont= '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol';
 
 
-const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo','McMaster University','Queens University','Ryerson University','Mcgill University'];
+const universities=['University of Ottawa','Carleton University','University of Toronto','University of Waterloo','McMaster University','Queens University','Ryerson University','Mcgill University','Concordia University'];
 
 const {Content} = Layout;
 
@@ -58,28 +54,7 @@ const heroText1={
   }
 const heroText2={fontWeight:300,fontSize:'15px',padding:"2px"}
 const heroText2m={fontWeight:300,fontSize:'13px',padding:"2px", color:'dodgerblue', marginTop:15}
-const subTextStyle={
-    display:'flex',
-    flex: '0 0 100%',
-    justifyContent:'right',
-    width: 'auto',
-    maxHeight: '100%',
-    flexDirection:'column',
-    textAlign:'center',
-    marginTop:40,
-    fontWeight:600
-  }
-const imageRow={
-  display: 'flex',
-  width:'100%',
-  paddingTop:'5vh'
-}
 
-const imageCol={
-  flex: '100%',
-  padding: '1vh',
-  alignSelf:'center'
-}
 
 
 
@@ -123,29 +98,7 @@ const IndexPage = () => (
         <div style={heroSvgStyle}>
           <img src={Testimg} alt="Ryerson University" style={{width:'109%'}}/>
         </div>
-        <div style={subTextStyle}>
-          <div>Beacon is active in these schools</div>
-          <div style={imageRow}>
-            <div style={imageCol}>
-              <img src={Uottawa} alt="UOttawa" style={{width:'36%'}}/>
-            </div>
-            <div style={imageCol}>
-              <img src={Carleton} alt="Carleton University" style={{width:'80%'}}/>
-            </div>
-            <div style={imageCol}>
-              <img src={Waterloo} alt="University of Waterloo" style={{width:'80%'}}/>
-            </div>
-            <div style={imageCol}>
-              <img src={Queens} alt="Queens University" style={{width:'60%'}}/>
-            </div>
-            <div style={imageCol}>
-              <img src={UofT} alt="University of Toronto" style={{width:'60%'}}/>
-            </div>
-            <div style={imageCol}>
-              <img src={Ryerson} alt="Ryerson University" style={{width:'60%'}}/>
-            </div>
-          </div>
-        </div>
+        <ActiveUniversities />
     </Content>
 </Layout>
 );

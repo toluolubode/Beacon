@@ -2,30 +2,9 @@ import React, { Component } from 'react';
 import {Input, Button} from 'antd';
 import firebase from '../firebase.js';
 import HeaderNoBtn from '../components/HeaderNoBtn.js';
-
-const systemfont= '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol';
+import styles from '../styles/FormStyles.css';
 
 const { TextArea } = Input;
-
-const formStyle = {
-    width: '40%',
-    margin: '40px auto',
-    maxWidth: 480,
-    padding: 40,
-    borderRadius: 10,
-    background: 'gray',
-    fontFamily: systemfont,
-    color:'white'
-}
-
-const formTitleStyle = {
-  fontWeight: 600,
-  marginBottom: 20,
-}
-
-const formGroup ={
-  margin: '0 0 10px'
-}
 
 class SubmitForm extends Component{
   constructor() {
@@ -69,13 +48,13 @@ addUser = e => {
       <div>
         <HeaderNoBtn />
         <div>
-          <div>
+          <div className={styles.formHeader}>
             <div><h3>Submit your student organisation</h3></div>
             <div>Someone the beacon team will reach out to make sure all the info is okay</div>
           </div>
-          <form style={formStyle}>
-            <div style={formTitleStyle}> Submit your student organisation</div>
-            <div style={formGroup}>
+          <form className={styles.formStyle}>
+            <div className={styles.formTitleStyle}> Submit your student organisation</div>
+            <div className={styles.formGroup}>
               <label>Organisation name </label>
               <Input
                 type="text"
@@ -85,7 +64,7 @@ addUser = e => {
                 value={this.state.studentorg}
               />
             </div>
-            <div style={formGroup}>
+            <div className={styles.formGroup}>
               <label>Email Address</label>
                 <Input
                   type="email"
@@ -95,7 +74,7 @@ addUser = e => {
                   value={this.state.email}
                 />
             </div>
-            <div style = {formGroup}>
+            <div className={styles.formGroup}>
               <label>Website</label>
                 <Input
                   type="url"
@@ -105,7 +84,7 @@ addUser = e => {
                   value={this.state.website}
                 />
             </div>
-            <div style = {formGroup}>
+            <div className={styles.formGroup}>
               <label>Description</label>
               <TextArea
                 type ="text"

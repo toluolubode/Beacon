@@ -3,47 +3,8 @@ import {Layout, Button} from 'antd';
 import { Route} from 'react-router-dom';
 import Logo from '../assets/beacon-logo.svg';
 import MediaQuery from 'react-responsive';
+import styles from '../styles/HeaderSiteStyle.css';
 const { Header } = Layout;
-
-
-const headerStyle ={
-  background: 'white',
-  display:'flex',
-  flex:'none',
-  borderBottom: '1px solid rgb(223, 223, 223)',
-  //  for mobile width:'fit-content'
-}
-const headerStylem ={
-  background: 'white',
-  display:'flex',
-  flex:'none',
-  borderBottom: '1px solid rgb(223, 223, 223)',
-  width:'100%'
-}
-const logoStyle= {
-  color:'black',
-  flex:1,
-  width: 120,
-  height: 31,
-  margin: '16 24 16 0',
-  float: 'left',
-  fontSize:20,
-  fontWeight:500,
-  whiteSpace:"nowrap"
-}
-const logoStylem= {
-  color:'black',
-  flex:1,
-  width: 120,
-  height: 31,
-  margin: '16 24 16 0',
-  float: 'left',
-  fontSize:20,
-  fontWeight:500,
-  whiteSpace:"nowrap",
-  marginRight: 30
-}
-const submitButtonStyle= {justifyContent:'flex-end'}
 
 const HeaderSite = () => {
   return(
@@ -52,11 +13,11 @@ const HeaderSite = () => {
         {(matches) => {
           if (matches) {
             return(
-              <Header className="header" style={headerStyle}>
-              <div className="logo" style={logoStyle}>
+              <Header className={styles.headerStyle} style={{backgroundColor:'white'}}>
+              <div className={styles.logoStyle}>
                 <img src={Logo} alt="Ryerson University"/>
               </div>
-              <div className="submit" style={submitButtonStyle}>
+              <div className={styles.submitButtonStyle}>
                 <Route render={({ history}) => (
                   <Button
                     type='primary'
@@ -70,11 +31,11 @@ const HeaderSite = () => {
           );
           } else {
             return (
-              <Header className="header" style={headerStylem}>
-              <div className="logo" style={logoStylem}>
+              <Header className={styles.headerStylem} style={{backgroundColor:'white'}}>
+              <div className={styles.logoStylem}>
                 <img src={Logo} alt="Ryerson University"/>
               </div>
-              <div className="submit" style={submitButtonStyle}>
+              <div className={styles.submitButtonStyle}>
                 <Route render={({ history}) => (
                   <Button
                     type='primary'

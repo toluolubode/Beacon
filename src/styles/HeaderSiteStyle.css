@@ -1,0 +1,49 @@
+.ant-layout-header{
+  background-color: white;
+}
+/*general styling */
+.headerStyle {
+  background-color: white;
+  display: flex;
+  flex: none;
+  border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+/* for mobile */
+.headerStylem {
+  background-color: white;
+  display: flex;
+  flex: none;
+  border-bottom: 1px solid rgb(223, 223, 223);
+  width: 100%;
+}
+
+
+.logoStyle {
+  flex:1px;
+  width: 120px;
+  height: 31px;
+  margin: 16 24 16 0;
+  float: left;
+  font-size: 20px;
+  font-weight: 500;
+  white-space:nowrap;
+}
+
+/*logo on mobile*/
+.logoStylem {
+  color:black;
+  flex:1px;
+  width: 120px;
+  height: 31px;
+  margin: 16 24 16 0;
+  float: left;
+  font-size: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-right: 30px;
+}
+
+.submitButtonStyle {
+  justify-content: flex-end;
+}
